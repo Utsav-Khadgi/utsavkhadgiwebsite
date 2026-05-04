@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Utsav</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link href="assets/style.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ====================================================== NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Utsav<span>.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <i class="bi bi-list fs-4 text-white"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html"     data-page="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"     data-page="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="education.html" data-page="education.html">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="career.html"    data-page="career.html">Career</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html"  data-page="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="vision.html"    data-page="vision.html">Vision</a></li>
+          <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="contact.html" data-page="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====================================================== PAGE HEADER -->
+  <div class="page-header">
+    <div class="ph-grid"></div><div class="ph-glow"></div>
+    <div class="container position-relative">
+      <div class="section-label">Reach Out</div>
+      <h1 class="section-title">Get In Touch</h1>
+      <p class="section-sub">Whether it's a job opportunity, a project idea, or just a hello — my inbox is always open.</p>
+    </div>
+  </div>
+
+  <!-- ====================================================== CONTACT CONTENT -->
+  <section>
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Left col: contact info -->
+        <div class="col-lg-5">
+          <h2 class="mb-4" style="font-size:1.4rem;font-weight:700;">Contact Information</h2>
+
+          <!-- ✏️ EDIT: Your real contact details -->
+          <div class="ci-row">
+            <i class="bi bi-envelope"></i>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-val">youremail@gmail.com</div>
+            </div>
+          </div>
+
+          <div class="ci-row">
+            <i class="bi bi-telephone"></i>
+            <div>
+              <div class="ci-label">Phone</div>
+              <div class="ci-val">+977 98XXXXXXXX</div>
+            </div>
+          </div>
+
+          <div class="ci-row">
+            <i class="bi bi-geo-alt"></i>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-val">Kathmandu, Nepal</div>
+            </div>
+          </div>
+
+          <div class="ci-row">
+            <i class="bi bi-clock"></i>
+            <div>
+              <div class="ci-label">Response Time</div>
+              <div class="ci-val">Usually within 24 hours</div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <div class="mb-2" style="font-size:.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-display);">Find me on</div>
+            <div class="d-flex gap-2">
+              <!-- ✏️ EDIT: Replace # with your real profile URLs -->
+              <a href="#" class="social-link" title="GitHub"><i class="bi bi-github"></i></a>
+              <a href="#" class="social-link" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="social-link" title="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="social-link" title="Facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+          </div>
+
+          <!-- Availability card -->
+          <div class="g-card mt-4" style="background:rgba(0,229,160,.07);border-color:rgba(0,229,160,.2);">
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block;"></span>
+              <!-- ✏️ EDIT: Update your availability status -->
+              <span style="font-family:var(--font-display);font-weight:700;font-size:.9rem;">Available for Work</span>
+            </div>
+            <p style="font-size:.85rem;color:var(--text-muted);margin:0;">Open to full-time roles and freelance projects in Nepal and remote.</p>
+          </div>
+        </div>
+
+        <!-- Right col: contact form -->
+        <div class="col-lg-7">
+          <h2 class="mb-4" style="font-size:1.4rem;font-weight:700;">Send a Message</h2>
+
+          <!--
+            ✏️ NOTE: This form is front-end only (no emails will actually be sent).
+            To make it work, connect to one of these free services:
+            
+            Option 1 — Formspree (easiest, free):
+              1. Go to https://formspree.io and create a free account
+              2. Create a new form and copy your endpoint URL
+              3. Change action="YOUR_FORMSPREE_URL" and remove id="contactForm"
+                 OR keep the fetch() approach in the script below and swap the URL
+            
+            Option 2 — EmailJS (no backend needed):
+              1. Go to https://emailjs.com
+              2. Connect your Gmail, set up a template
+              3. Use emailjs.sendForm() in the submit handler
+
+            Option 3 — Your own ASP.NET API:
+              POST to your controller that sends email via SMTP
+          -->
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label" for="fname">Your Name *</label>
+                <input type="text" class="form-control" id="fname" placeholder="John Doe" required />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="femail">Email Address *</label>
+                <input type="email" class="form-control" id="femail" placeholder="john@example.com" required />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="fphone">Phone (optional)</label>
+                <input type="tel" class="form-control" id="fphone" placeholder="+977 98XXXXXXXX" />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="ftype">Enquiry Type</label>
+                <select class="form-select" id="ftype">
+                  <option value="">Select...</option>
+                  <option>Job Opportunity</option>
+                  <option>Freelance Project</option>
+                  <option>Collaboration</option>
+                  <option>General Hello</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="fsubject">Subject *</label>
+                <input type="text" class="form-control" id="fsubject" placeholder="What's this about?" required />
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="fmessage">Message *</label>
+                <textarea class="form-control" id="fmessage" rows="5" placeholder="Write your message here..." required></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-accent w-100" style="justify-content:center;">
+                  <i class="bi bi-send"></i> Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Success / Error messages -->
+          <div id="formSuccess" class="mt-3 p-3 rounded-3 text-center d-none"
+               style="background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.3);color:var(--accent);">
+            <i class="bi bi-check-circle me-2"></i> Message sent! I'll get back to you soon.
+          </div>
+          <div id="formError" class="mt-3 p-3 rounded-3 text-center d-none"
+               style="background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.3);color:#ff6b6b;">
+            <i class="bi bi-exclamation-circle me-2"></i> Something went wrong. Please try again.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== FOOTER -->
+  <footer>
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div class="brand">Utsav<span>.</span></div>
+      <p>© <span id="year"></span> Utsav. Built with Bootstrap 5.</p>
+      <div class="d-flex gap-2">
+        <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+        <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/shared.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const btn = this.querySelector('[type="submit"]');
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Sending...';
+      btn.disabled = true;
+
+      // ✏️ TODO: Replace this block with your real send logic.
+      // Example using Formspree:
+      //
+      // const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      //   method: 'POST',
+      //   headers: { 'Accept': 'application/json' },
+      //   body: new FormData(this)
+      // });
+      // const ok = res.ok;
+
+      // ── Demo: simulate a network delay then show success ──
+      await new Promise(r => setTimeout(r, 1200));
+      const ok = true; // change to `res.ok` when you wire up Formspree
+
+      btn.innerHTML = '<i class="bi bi-send"></i> Send Message';
+      btn.disabled = false;
+
+      if (ok) {
+        document.getElementById('formSuccess').classList.remove('d-none');
+        document.getElementById('formError').classList.add('d-none');
+        this.reset();
+      } else {
+        document.getElementById('formError').classList.remove('d-none');
+        document.getElementById('formSuccess').classList.add('d-none');
+      }
+    });
+  </script>
+</body>
+</html>
