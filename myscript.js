@@ -20,7 +20,7 @@ let typewriter = new Typewriter(app, {
 typewriter.typeString('Utsav Khadgi')
     .pauseFor(2500)
     .deleteAll()
-    .typeString('IT Student')
+    .typeString('C# Development')
     .pauseFor(2500)
     .deleteAll()
     .typeString('IT Enthusiast')
