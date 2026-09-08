@@ -142,7 +142,7 @@ button {
   box-shadow: 0px -3px 12px 0px rgba(214, 207, 214, 1);
   -webkit-box-shadow: 0px -3px 12px 0px rgba(214, 207, 214, 1);
   -moz-box-shadow: 0px -3px 12px 0px rgba(214, 207, 214, 1);
-  display: none;
+  /* display: none; */
 }
 .navbar-sm {
   display: flex;
@@ -163,10 +163,15 @@ button {
 .navbar-toggler:hover {
   opacity: 0.6;
 }
-.navbar-collapse {
+/* .navbar-collapse {
   height: 0;
   overflow: hidden;
   transition: var(--transition);
+} */
+ .navbar-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
 }
 .navbar-nav {
   text-align: center;
@@ -185,15 +190,18 @@ button {
 .nav-link:hover {
   color: #c7c7c7;
 }
-.toggleNav {
+/* .toggleNav {
   padding: 1rem 0;
   height: 286px;
+} */
+.toggleNav {
+    padding: 1rem 0;
+    max-height: 600px;
 }
-
 /* header */
 .header {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("ig/weeekly.jpg") center center / cover no-repeat;
+    url("ig/LandingPage.jpg") center center / cover no-repeat;
   height: 100vh;
 }
 .header .row {
@@ -490,10 +498,17 @@ button {
   .navbar-toggler {
     display: none;
   }
-  .navbar-collapse {
+  /* .navbar-collapse {
     height: 100%;
     flex: 1 0 auto;
-  }
+  } */
+
+    .navbar-collapse {
+        height: auto;
+        max-height: none;
+        flex: 1 0 auto;
+        overflow: visible;
+    }
   .navbar-nav {
     display: flex;
     justify-content: flex-end;

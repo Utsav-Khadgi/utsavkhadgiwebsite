@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indra Jatra Countdown</title>
+
+<style>
+
+/* ==========================
+   GENERAL PAGE STYLING
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color:#fff;
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    /* Background Image */
+    background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url("ig/JatraMain.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+/* Main container */
+.countdown-container{
+    width:90%;
+    max-width:1200px;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.icon{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.title{
+    font-size:4rem;
+    letter-spacing:8px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.subtitle{
+    margin-top:20px;
+    font-size:1.3rem;
+    color:#ddd;
+}
+
+/* ==========================
+   COUNTDOWN BOXES
+========================== */
+
+.timer{
+    margin-top:60px;
+
+    display:flex;
+    justify-content:center;
+    gap:25px;
+
+    flex-wrap:wrap;
+}
+
+.time-box{
+
+    width:220px;
+    height:220px;
+
+    border:2px solid white;
+    border-radius:20px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    transition:0.3s;
+}
+
+.time-box:hover{
+    transform:translateY(-5px);
+}
+
+.number{
+    font-size:5rem;
+    font-weight:bold;
+}
+
+.label{
+    margin-top:10px;
+    font-size:1.5rem;
+    letter-spacing:3px;
+}
+
+/* ==========================
+   FOOTER TEXT
+========================== */
+
+.footer-text{
+    margin-top:60px;
+
+    font-size:1.8rem;
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+}
+
+/* ==========================
+   MOBILE RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+    .title{
+        font-size:2.5rem;
+    }
+
+    .time-box{
+        width:160px;
+        height:160px;
+    }
+
+    .number{
+        font-size:3.5rem;
+    }
+
+    .label{
+        font-size:1rem;
+    }
+
+    .footer-text{
+        font-size:1.2rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="countdown-container">
+
+  
+
+    <!-- Main Heading -->
+    <h1 class="title">INDRA JATRA COUNTDOWN</h1>
+
+    <!-- Target Date -->
+    <p class="subtitle">
+        Counting down to 23 September 2026
+    </p>
+
+    <!-- Countdown Boxes -->
+    <div class="timer">
+
+        <div class="time-box">
+            <div id="days" class="number">00</div>
+            <div class="label">DAYS</div>
+        </div>
+
+        <div class="time-box">
+            <div id="hours" class="number">00</div>
+            <div class="label">HOURS</div>
+        </div>
+
+        <div class="time-box">
+            <div id="minutes" class="number">00</div>
+            <div class="label">MINUTES</div>
+        </div>
+
+        <div class="time-box">
+            <div id="seconds" class="number">00</div>
+            <div class="label">SECONDS</div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Text -->
+    <div class="footer-text">
+        • THE JOURNEY AWAITS •
+    </div>
+    <b/>
+<b/>
+<footer>
+
+<p>
+
+Designed & Developed by
+
+<strong>
+
+Utsav Khadgi (Tyson)
+
+</strong>
+
+</p>
+
+<p>
+
+© 2026 All Rights Reserved
+
+</p>
+
+</footer>
+
+
+
+
+</div>
+
+
+<script>
+
+/*
+====================================
+TARGET DATE
+====================================
+
+Month index starts from 0 in JS
+
+January = 0
+February = 1
+...
+September = 8
+
+23 September 2026
+*/
+
+const targetDate = new Date(
+    2026,
+    8,
+    23,
+    0,
+    0,
+    0
+);
+
+/*
+====================================
+COUNTDOWN FUNCTION
+====================================
+*/
+
+function updateCountdown(){
+
+    const now = new Date();
+
+    const difference =
+        targetDate - now;
+
+    // Countdown completed
+    if(difference <= 0){
+
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        return;
+    }
+
+    // Convert milliseconds
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+    const hours =
+        Math.floor(
+            (difference %
+            (1000 * 60 * 60 * 24))
+            /
+            (1000 * 60 * 60)
+        );
+
+    const minutes =
+        Math.floor(
+            (difference %
+            (1000 * 60 * 60))
+            /
+            (1000 * 60)
+        );
+
+    const seconds =
+        Math.floor(
+            (difference %
+            (1000 * 60))
+            /
+            1000
+        );
+
+    // Update HTML
+    document.getElementById("days")
+        .textContent = days;
+
+    document.getElementById("hours")
+        .textContent = String(hours)
+        .padStart(2,"0");
+
+    document.getElementById("minutes")
+        .textContent = String(minutes)
+        .padStart(2,"0");
+
+    document.getElementById("seconds")
+        .textContent = String(seconds)
+        .padStart(2,"0");
+}
+
+/*
+Run immediately
+*/
+updateCountdown();
+
+/*
+Run every second
+*/
+setInterval(updateCountdown,1000);
+
+</script>
+
+</body>
+</html>

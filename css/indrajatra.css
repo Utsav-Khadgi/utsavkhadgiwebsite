@@ -1,0 +1,348 @@
+/* ==========================
+   GENERAL PAGE STYLING
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+
+    min-height: 100vh;
+
+    text-align: center;
+
+}
+
+.container1 {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  margin: 50px 50px;
+  
+}
+
+.container1 div {
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* Main container */
+
+/* .countdown-container {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+        url("../ig/JatraMain.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    min-height: 65vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 90px 20px;
+} */
+
+.countdown-container {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+        url("../ig/JatraMain.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #fff;
+
+    /* Make it a box */
+    width: 90%;
+    max-width: 1200px;
+    min-height: 550px;
+
+    /* Center the box horizontally */
+    margin: 40px auto 60px;
+    margin-top: 120px;
+    /* Rounded corners */
+    border-radius: 20px;
+
+    /* Optional: subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    /* Keep your countdown centered */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 70px 20px;
+
+    /* Prevent background from spilling outside rounded corners */
+    overflow: hidden;
+}
+
+
+
+.new-content {
+    width: 100%;
+    padding: 60px 20px;
+}
+
+
+
+/* ==========================
+   HEADER
+========================== */
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.title {
+    font-size: 4rem;
+    letter-spacing: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #ddd;
+}
+
+/* ==========================
+   COUNTDOWN BOXES
+========================== */
+
+.timer {
+    margin-top: 60px;
+
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.time-box {
+
+    width: 220px;
+    height: 220px;
+
+    border: 2px solid white;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+.time-box:hover {
+    transform: translateY(-5px);
+}
+
+.number {
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.label {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+}
+
+
+@media (max-width: 768px) {
+
+    .countdown-container {
+        width: 94%;
+        min-height: 500px;
+        padding: 50px 10px;
+    }
+
+    .title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .timer {
+        gap: 10px;
+        margin-top: 35px;
+    }
+
+    .time-box {
+        width: 135px;
+        height: 135px;
+    }
+
+    .number {
+        font-size: 3rem;
+    }
+
+    .label {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    .footer-text {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+}
+
+
+
+
+/* ==========================
+   FOOTER TEXT
+========================== */
+
+.footer-text {
+    margin-top: 60px;
+
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+/* ==========================
+   MOBILE RESPONSIVE
+========================== */
+
+@media(max-width:768px) {
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .time-box {
+        width: 160px;
+        height: 160px;
+    }
+
+    .number {
+        font-size: 3.5rem;
+    }
+
+    .label {
+        font-size: 1rem;
+    }
+
+    .footer-text {
+        font-size: 1.2rem;
+    }
+}
+
+ .imageslider {
+    width: 90%;
+    max-width: 1200px;
+    height: 450px;
+
+    margin: 80px auto 60px;
+
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.imageslider img {
+    width: 10%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.imageslider img:hover {
+    width: 25%;
+}
+
+
+@media (max-width: 768px) {
+
+    .imageslider {
+        width: 95%;
+        height: 300px;
+        gap: 5px;
+        margin: 50px auto;
+    }
+
+    .imageslider img {
+        width: 18%;
+    }
+
+    .imageslider img:hover {
+        width: 30%;
+    }
+
+}
+
+
+.intro-section {
+    padding: 80px 20px;
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.intro-image,
+.intro-text {
+    flex: 1;
+}
+
+.intro-image img {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+}
+
+.intro-text {
+    text-align: left;
+}
+
+.intro-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+
+    .intro-content {
+        flex-direction: column;
+    }
+
+    .intro-text {
+        text-align: center;
+    }
+
+}

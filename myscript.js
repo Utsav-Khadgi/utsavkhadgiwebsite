@@ -39,8 +39,8 @@ window.addEventListener('resize', () => {
     }, 400);
 });
 
-// showing navbar after scrolling
-window.addEventListener('scroll', () => {
+// showing navbar after scrolling is disabled as per need
+/* window.addEventListener('scroll', () => {
     let position = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     const navbar = document.querySelector('.navbar');
     if(position >= 800){
@@ -49,3 +49,4 @@ window.addEventListener('scroll', () => {
         navbar.style.display = "none";
     }
 });
+ */

@@ -1,0 +1,113 @@
+/* ============================================================
+   NAVBAR — reusable across every page.
+   Depends on variables from base.css (--transition, --whiteSmoke).
+   Load base.css BEFORE this file.
+============================================================ */
+.navbar {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0px -3px 12px 0px rgba(214, 207, 214, 1);
+  -webkit-box-shadow: 0px -3px 12px 0px rgba(214, 207, 214, 1);
+  -moz-box-shadow: 0px -3px 12px 0px rgba(214, 207, 214, 1);
+}
+.navbar-sm {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.navbar-toggler {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  transition: var(--transition);
+}
+.navbar-toggler:hover {
+  opacity: 0.6;
+}
+/* .navbar-collapse {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+} */
+
+.navbar-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+
+.navbar-nav {
+  text-align: center;
+}
+.nav-item {
+  padding: 0.8rem 0;
+  border-bottom: 1.5px solid var(--whiteSmoke);
+}
+.nav-item:last-child {
+  border-bottom: none;
+}
+.nav-link {
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+.nav-link:hover {
+  color: #c7c7c7;
+}
+.toggleNav {
+  padding: 1rem 0;
+  /* height: 350px;  to adjust for 6th navbar item*/
+  max-height: 600px;
+}
+
+/* IMPORTANT: because .navbar is position:fixed, it sits on top of page
+   content instead of pushing it down. Every page's main content wrapper
+   needs top spacing to compensate — see the .page-content rule below,
+   or add padding-top to your own top-level content container. */
+.page-content {
+  padding-top: 90px; /* navbar height (~68px collapsed) + breathing room */
+}
+
+@media screen and (min-width: 992px) {
+  .navbar .container {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar-toggler {
+    display: none;
+  }
+  /* .navbar-collapse {
+    height: 100%;
+    flex: 1 0 auto;
+  } */
+
+     .navbar-collapse {
+        height: auto;
+        max-height: none;
+        flex: 1 0 auto;
+        overflow: visible;
+    }
+  .navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .nav-item {
+    border-bottom: none;
+    margin: 0 1rem;
+  }
+  .navbar-sm {
+    margin: 0;
+    box-shadow: none;
+    flex: 0 0 100px;
+  }
+}

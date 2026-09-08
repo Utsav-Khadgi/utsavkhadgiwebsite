@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal — [Your Name]</title>
+<link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+
+<header class="site-bar">
+  <a href="index.html" class="home-link">[Your Name]</a>
+  <nav>
+    <a href="index.html">About</a>
+    <a href="jatra.html">Jatra</a>
+    <a href="blog.html" class="active">Journal</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <p class="kicker">Featured</p>
+  <h1>What Indra Jatra taught me about staying in one place</h1>
+  <p class="dek">Eight nights, one chariot, and a city that still remembers how to stop for its gods. Notes from this year's festival in Kathmandu, and what it means to carry it with me now.</p>
+  <p class="meta">September 2026 · Jatra · 6 min read</p>
+  <a href="blog-post.html" class="read-link">Read the story</a>
+</section>
+
+<div class="controls">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search the journal…">
+  </div>
+  <div class="filters" id="filterBar">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="jatra">Jatra</button>
+    <button data-filter="food">Food</button>
+    <button data-filter="craft">Craft &amp; language</button>
+    <button data-filter="essay">Essays</button>
+  </div>
+</div>
+
+<main class="post-index" id="postIndex">
+
+  <a class="post-row" data-category="jatra" data-title="bisket jatra tale of two chariots" href="blog-post.html">
+    <div class="when">Apr 12<span class="year">2026</span></div>
+    <div>
+      <h2>Bisket Jatra: a tale of two chariots</h2>
+      <p>In Bhaktapur, the new year doesn't start at midnight — it starts when two neighborhoods pull a chariot in opposite directions until one side wins.</p>
+      <span class="tag">Jatra</span>
+    </div>
+  </a>
+
+  <a class="post-row" data-category="food" data-title="yomari and the shape of gratitude" href="blog-post.html">
+    <div class="when">Dec 15<span class="year">2025</span></div>
+    <div>
+      <h2>Yomari and the shape of gratitude</h2>
+      <p>Why a rice-flour dumpling shaped like a fig is the centerpiece of Yomari Punhi, and the small argument my family has every year about the filling.</p>
+      <span class="tag">Food</span>
+    </div>
+  </a>
+
+  <a class="post-row" data-category="craft" data-title="writing my name in ranjana script" href="blog-post.html">
+    <div class="when">Nov 02<span class="year">2025</span></div>
+    <div>
+      <h2>Writing my name in Ranjana script</h2>
+      <p>A short guide to the script you've probably seen on mani wheels and temple lintels without knowing its name — and how I learned to write mine.</p>
+      <span class="tag">Craft &amp; language</span>
+    </div>
+  </a>
+
+  <a class="post-row" data-category="essay" data-title="what i kept and what i let go" href="blog-post.html">
+    <div class="when">Aug 20<span class="year">2025</span></div>
+    <div>
+      <h2>What I kept, and what I let go</h2>
+      <p>Growing up Newari outside the valley meant choosing, without meaning to, which parts of the culture would travel with me.</p>
+      <span class="tag">Essay</span>
+    </div>
+  </a>
+
+  <a class="post-row" data-category="jatra" data-title="gai jatra grief as procession" href="blog-post.html">
+    <div class="when">Aug 09<span class="year">2025</span></div>
+    <div>
+      <h2>Gai Jatra: grief as procession</h2>
+      <p>The festival that turns mourning into a parade — cows, costumes, and a very old way of saying that loss belongs to everyone.</p>
+      <span class="tag">Jatra</span>
+    </div>
+  </a>
+
+  <p class="empty-state" id="emptyState">No posts match that search. Try a different word, or clear the filter.</p>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> [Your Name]. Written from wherever I happen to be.</p>
+</footer>
+
+<script src="js/blog.js"></script>
+</body>
+</html>
