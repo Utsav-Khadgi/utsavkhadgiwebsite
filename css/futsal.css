@@ -727,3 +727,198 @@ body {
     }
 
 }
+
+/* =========================================================
+   MAN OF THE MATCH
+========================================================= */
+
+.motm-section {
+    padding: 100px 20px;
+    background: #111;
+}
+
+.motm-section .title h2 {
+    color: white;
+}
+
+.motm-card {
+    max-width: 1000px;
+    margin: auto;
+
+    position: relative;
+
+    padding: 60px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d1d1d,
+            #252525
+        );
+
+    border-radius: 15px;
+
+    border: 2px solid #c1121f;
+
+    color: white;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.4);
+}
+
+.motm-badge {
+    position: absolute;
+
+    top: -20px;
+    right: 30px;
+
+    background: #c1121f;
+
+    color: white;
+
+    padding: 12px 25px;
+
+    font-weight: bold;
+
+    border-radius: 30px;
+
+    letter-spacing: 2px;
+}
+
+.motm-content {
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+.motm-icon {
+    font-size: 7rem;
+}
+
+.motm-text {
+    flex: 1;
+}
+
+.motm-label {
+    color: #c1121f;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.motm-text h2 {
+    font-size: 3.5rem;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 10px;
+}
+
+.motm-text h3 {
+    color: #ddd;
+
+    margin-bottom: 25px;
+
+    font-size: 1.3rem;
+}
+
+.motm-text > p {
+    color: #ccc;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+}
+
+.motm-stats {
+    display: flex;
+
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+.motm-stat {
+    flex: 1;
+
+    text-align: center;
+
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 10px;
+}
+
+.motm-stat span {
+    display: block;
+
+    font-size: 2rem;
+
+    font-weight: bold;
+
+    color: #c1121f;
+}
+
+.motm-stat p {
+    margin-top: 8px;
+
+    color: #bbb;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .motm-section {
+        padding: 70px 20px;
+    }
+
+    .motm-card {
+        padding: 50px 20px 30px;
+    }
+
+    .motm-content {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 20px;
+    }
+
+    .motm-icon {
+        font-size: 5rem;
+    }
+
+    .motm-text h2 {
+        font-size: 2.5rem;
+
+        letter-spacing: 2px;
+    }
+
+    .motm-stats {
+        gap: 10px;
+    }
+
+    .motm-stat {
+        padding: 15px 8px;
+    }
+
+    .motm-stat span {
+        font-size: 1.5rem;
+    }
+
+    .motm-badge {
+        right: 50%;
+
+        transform: translateX(50%);
+    }
+
+}
