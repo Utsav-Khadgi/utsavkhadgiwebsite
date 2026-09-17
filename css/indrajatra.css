@@ -1,6 +1,21 @@
-/* ==========================
-   GENERAL PAGE STYLING
-========================== */
+/* ==========================================================
+   0. VARIABLES
+   ========================================================== */
+
+:root {
+    --largeFont: Arial, Helvetica, sans-serif;
+    --darkCharcoal: #333333;
+
+    /* Section background tints */
+    --bg-white: #ffffff;
+    --bg-grey: #f6f4f1;
+    --divider: #e8e6e2;
+}
+
+
+/* ==========================================================
+   1. RESET & BASE
+   ========================================================== */
 
 * {
     margin: 0;
@@ -10,68 +25,110 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-
-
     min-height: 100vh;
-
     text-align: center;
-
+    background-color: var(--bg-white);
 }
 
+
+/* ==========================================================
+   2. SECTION TINT + DIVIDERS
+   Applies to every top-level <section>, alternating grey/white.
+   .countdown-container has its own image background, so it
+   simply layers on top and isn't affected.
+   ========================================================== */
+
+body>section {
+    border-top: 1px solid var(--divider);
+}
+
+.intro-section:nth-of-type(odd) {
+    background-color: var(--bg-white);
+}
+
+.intro-section:nth-of-type(even) {
+    background-color: var(--bg-grey);
+}
+
+
+/* ==========================================================
+   3. PAGE HEADING
+   ========================================================== */
+
+.page-heading {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 0;
+    text-align: center;
+}
+
+.page-heading h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: rgb(88, 21, 21);
+}
+
+.page-heading .hoz-line {
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #222;
+    margin: 1rem auto 1.2rem;
+}
+
+.page-heading p {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+
+/* ==========================================================
+   4. COUNTDOWN HERO
+   ========================================================== */
 
 .countdown-container {
     background:
         linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
         url("../ig/Indra\ Jatra\ Cover\ By\ Utsav.png");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     color: #fff;
 
-    /* Make it a box */
     width: 90%;
     max-width: 1200px;
     min-height: 550px;
 
-    /* Center the box horizontally */
-    margin: 40px auto 60px;
-    margin-top: 120px;
-    /* Rounded corners */
-    border-radius: 20px;
+    margin: 120px auto 60px;
 
-    /* Optional: subtle border */
+    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
 
-    /* Keep your countdown centered */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     padding: 70px 20px;
-
-    /* Prevent background from spilling outside rounded corners */
     overflow: hidden;
 }
-
-
-/* ==========================
-   HEADER
-========================== */
 
 .icon {
     font-size: 3rem;
     margin-bottom: 15px;
 }
 
+/* Hero title */
 .title {
     font-size: 4rem;
     letter-spacing: 8px;
     font-weight: 700;
     text-transform: uppercase;
-   
 }
 
 .subtitle {
@@ -80,22 +137,20 @@ body {
     color: #ddd;
 }
 
-/* ==========================
-   COUNTDOWN BOXES
-========================== */
+
+/* ==========================================================
+   5. COUNTDOWN BOXES
+   ========================================================== */
 
 .timer {
     margin-top: 60px;
-
     display: flex;
     justify-content: center;
     gap: 25px;
-
     flex-wrap: wrap;
 }
 
 .time-box {
-
     width: 220px;
     height: 220px;
 
@@ -125,94 +180,19 @@ body {
     letter-spacing: 3px;
 }
 
-
-@media (max-width: 768px) {
-
-    .countdown-container {
-        width: 94%;
-        min-height: 500px;
-        padding: 50px 10px;
-    }
-
-    .title {
-        font-size: 2rem;
-        letter-spacing: 3px;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-    }
-
-    .timer {
-        gap: 10px;
-        margin-top: 35px;
-    }
-
-    .time-box {
-        width: 135px;
-        height: 135px;
-    }
-
-    .number {
-        font-size: 3rem;
-    }
-
-    .label {
-        font-size: 0.8rem;
-        letter-spacing: 2px;
-    }
-
-    .footer-text {
-        font-size: 1rem;
-        letter-spacing: 2px;
-    }
-}
-
-
-
-
-/* ==========================
-   FOOTER TEXT
-========================== */
-
 .footer-text {
     margin-top: 60px;
-
     font-size: 1.8rem;
     letter-spacing: 4px;
-
     text-transform: uppercase;
 }
 
-/* ==========================
-   MOBILE RESPONSIVE
-========================== */
 
-@media(max-width:768px) {
+/* ==========================================================
+   6. IMAGE SLIDER
+   ========================================================== */
 
-    .title {
-        font-size: 2.5rem;
-    }
-
-    .time-box {
-        width: 160px;
-        height: 160px;
-    }
-
-    .number {
-        font-size: 3.5rem;
-    }
-
-    .label {
-        font-size: 1rem;
-    }
-
-    .footer-text {
-        font-size: 1.2rem;
-    }
-}
-
- .imageslider {
+.imageslider {
     width: 90%;
     max-width: 1200px;
     height: 450px;
@@ -225,7 +205,7 @@ body {
 }
 
 .imageslider img {
-    width: 10%;
+    width: 15%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
@@ -234,11 +214,179 @@ body {
 }
 
 .imageslider img:hover {
-    width: 25%;
+    width: 35%;
 }
 
 
+/* ==========================================================
+   7. INTRO SECTION
+   ========================================================== */
+
+.intro-section {
+    padding: 80px 20px;
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.intro-image,
+.intro-text {
+    flex: 1;
+}
+
+.intro-image {
+    display: flex;
+    justify-content: center;
+}
+
+.intro-image img {
+    width: 100%;
+    max-width: 550px;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
+
+.intro-text {
+    text-align: left;
+}
+
+.intro-text h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.intro-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+
+/* ==========================================================
+   8. SECTION HEADINGS
+   ========================================================== */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+.section-title {
+    text-align: center;
+    padding: 0.5rem 0 1.8rem 0;
+}
+
+.section-title h2 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-family: var(--largeFont);
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.section-title .hoz-line {
+    width: 80px;
+    height: 4px;
+    background: var(--darkCharcoal);
+    margin: 0.4rem auto 0.6rem auto;
+}
+
+
+/* ==========================================================
+   9. VIDEO SECTION
+   ========================================================== */
+
+.video-section {
+    padding: 80px 20px;
+}
+
+.video-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* ==========================================================
+   10. MOBILE — single merged breakpoint (max-width: 768px)
+   ========================================================== */
+
 @media (max-width: 768px) {
+
+    .page-heading {
+        padding: 70px 20px 0;
+    }
+
+    .page-heading h1 {
+        font-size: 2.2rem;
+        letter-spacing: 3px;
+    }
+
+    .page-heading p {
+        font-size: 0.95rem;
+    }
+
+    .countdown-container {
+        width: 94%;
+        min-height: 500px;
+        padding: 50px 10px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .timer {
+        gap: 8px;
+        margin-top: 35px;
+        flex-wrap: nowrap;
+        /* force one row instead of wrapping */
+    }
+
+    .time-box {
+        width: 75px;
+        height: 75px;
+        border-radius: 12px;
+        /* smaller radius suits a smaller box */
+    }
+
+    .number {
+        font-size: 1.6rem;
+    }
+
+    .label {
+        font-size: 0.55rem;
+        letter-spacing: 1px;
+        margin-top: 5px;
+    }
+
+    .footer-text {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
 
     .imageslider {
         width: 95%;
@@ -255,69 +403,6 @@ body {
         width: 30%;
     }
 
-}
-
-
-/* ==========================
-   INTRO SECTION
-========================== */
-
-.intro-section {
-    padding: 80px 20px;
-}
-
-.intro-content {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-/* Image and text take equal space */
-.intro-image,
-.intro-text {
-    flex: 1;
-}
-
-/* Control image size */
-.intro-image {
-    display: flex;
-    justify-content: center;
-}
-
-.intro-image img {
-    width: 100%;
-    max-width: 550px;
-    height: 450px;
-    object-fit: cover;
-    display: block;
-    border-radius: 15px;
-}
-
-/* Text */
-.intro-text {
-    text-align: left;
-}
-
-.intro-text h2 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 25px;
-  
-}
-
-.intro-text p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 18px;
-}
-
-
-/* ==========================
-   MOBILE
-========================== */
-
-@media (max-width: 768px) {
-
     .intro-section {
         padding: 60px 20px;
     }
@@ -327,7 +412,6 @@ body {
         gap: 35px;
     }
 
-    /* Make image neither huge nor tiny */
     .intro-image {
         width: 100%;
     }
@@ -340,7 +424,6 @@ body {
         margin: 0 auto;
     }
 
-    /* Make text easier to read */
     .intro-text {
         width: 95%;
         max-width: 600px;
@@ -360,74 +443,8 @@ body {
         margin-bottom: 18px;
     }
 
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-heading h1 {
-    font-size: 4rem;
-    text-transform: uppercase;
-    letter-spacing: 6px;
-}
-
-
-@media (max-width: 768px) {
-
     .section-heading h1 {
         font-size: 2.5rem;
         letter-spacing: 3px;
     }
-
-}
-
-/* .video-container {
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-}
-
-.video-container video {
-    width: 100%;
-    height: auto;
-    display: block;
-} */
-
-
-.video-section {
-    padding: 80px 20px;
-}
-
-.video-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
-
-.video-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    overflow: hidden;
-}
-
-
-.title {
-  text-align: center;
-  padding: 0.5rem 0 1.8rem 0;
- 
-}
-.title h2 {
-  text-transform: uppercase;
-  font-size: 2rem;
-  font-family: var(--largeFont);
-  font-weight: 800;
-  letter-spacing: 4px;
-}
-.title .hoz-line {
-  width: 100%;
-  height: 4px;
-  background: var(--darkCharcoal);
-  width: 80px;
-  margin: 0.4rem auto 0.6rem auto;
 }
