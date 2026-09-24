@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+/* ============================================================
+   Timed Project Cards — scoped section styles
+   Everything is namespaced under .tc-timed-cards so nothing here
+   touches body/html or collides with your existing site CSS.
+   ============================================================ */
+
+.tc-timed-cards {
+  --tc-bg: #0a0f1a;
+  --tc-bg-2: #0f1626;
+  --tc-panel: #121b2e;
+  --tc-line: #2c3b52;
+  --tc-line-soft: #1c2740;
+  --tc-paper: #eef1f4;
+  --tc-muted: #7c8aa0;
+  --tc-accent: #e8792c;
+  --tc-accent-dim: #8a4d24;
+  --tc-on-media: #f5f3ee;
+  --tc-on-media-muted: rgba(245, 243, 238, 0.78);
+
+  position: relative;
+  isolation: isolate;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  color: var(--tc-paper);
+  background:
+    linear-gradient(var(--tc-line-soft) 1px, transparent 1px) 0 0 / 100% 34px,
+    linear-gradient(90deg, var(--tc-line-soft) 1px, transparent 1px) 0 0 / 34px 100%,
+    var(--tc-bg);
+  padding: clamp(28px, 5vw, 56px) clamp(18px, 4vw, 40px);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: light) {
+  .tc-timed-cards:not([data-theme="dark"]) {
+    --tc-bg: #eef1f4;
+    --tc-bg-2: #e4e8ee;
+    --tc-panel: #ffffff;
+    --tc-line: #c7d0dc;
+    --tc-line-soft: #dbe1ea;
+    --tc-paper: #0a0f1a;
+    --tc-muted: #5c6a80;
+  }
+}
+.tc-timed-cards[data-theme="dark"] {
+  --tc-bg: #0a0f1a; --tc-bg-2: #0f1626; --tc-panel: #121b2e; --tc-line: #2c3b52;
+  --tc-line-soft: #1c2740; --tc-paper: #eef1f4; --tc-muted: #7c8aa0;
+}
+.tc-timed-cards[data-theme="light"] {
+  --tc-bg: #eef1f4; --tc-bg-2: #e4e8ee; --tc-panel: #ffffff; --tc-line: #c7d0dc;
+  --tc-line-soft: #dbe1ea; --tc-paper: #0a0f1a; --tc-muted: #5c6a80;
+}
+
+.tc-timed-cards,
+.tc-timed-cards *,
+.tc-timed-cards *::before,
+.tc-timed-cards *::after {
+  box-sizing: border-box;
+}
+
+.tc-mono { font-family: 'IBM Plex Mono', monospace; }
+
+.tc-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--tc-muted);
+  margin-bottom: 16px;
+}
+
+/* ---------- stage (hero + thumbnail grid) ---------- */
+.tc-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(150px, 22vw, 230px);
+  gap: clamp(14px, 2.4vw, 26px);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.tc-stage.is-in { opacity: 1; transform: translateY(0); }
+
+/* ---------- hero panel ---------- */
+.tc-hero {
+  position: relative;
+  border: 1px solid var(--tc-line);
+  border-radius: 4px;
+  background: var(--tc-panel);
+  padding: clamp(20px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: clamp(300px, 46vh, 440px);
+  overflow: hidden;
+}
+
+.tc-hero-media { position: absolute; inset: 0; z-index: 0; }
+.tc-hero-media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  opacity: 0; transition: opacity 0.6s ease;
+}
+.tc-hero-media img.is-loaded { opacity: 1; }
+.tc-hero-media .tc-fallback {
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(135deg, var(--tc-line-soft) 0 2px, transparent 2px 14px),
+    var(--tc-bg-2);
+}
+.tc-hero-media::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.82) 10%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.1) 100%);
+}
+
+/* scoped "shutter" reveal — replaces the old full-page cover */
+.tc-shutter {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: var(--tc-panel);
+  transform: translateX(0);
+  transition: transform 0.9s cubic-bezier(0.7, 0, 0.2, 1);
+}
+.tc-shutter.is-open { transform: translateX(102%); }
+
+.tc-hero::before {
+  content: '';
+  position: absolute; top: 18px; right: 18px;
+  width: 46px; height: 46px;
+  border: 1px solid var(--tc-line);
+  border-radius: 50%;
+  z-index: 2;
+}
+.tc-icon {
+  position: absolute; top: 18px; right: 18px;
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+  color: var(--tc-accent);
+  z-index: 2;
+}
+.tc-icon svg { width: 22px; height: 22px; }
+
+.tc-hero-layer {
+  position: absolute; inset: clamp(20px, 4vw, 40px); z-index: 1;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+.tc-hero-layer.is-active {
+  opacity: 1; transform: translateY(0);
+  pointer-events: auto; position: relative; inset: auto;
+}
+.tc-hero-layer .tc-index { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--tc-on-media-muted); margin-bottom: 14px; }
+.tc-hero-layer .tc-tag { font-size: 0.72rem; color: var(--tc-accent); margin-bottom: 10px; }
+.tc-hero-layer h3 {
+  margin: 0 0 14px;
+  font-size: clamp(1.6rem, 4.6vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.01em;
+  color: var(--tc-on-media);
+}
+.tc-hero-layer p {
+  margin: 0 0 20px;
+  max-width: 52ch;
+  color: var(--tc-on-media-muted);
+  font-size: clamp(0.88rem, 2vw, 0.98rem);
+  line-height: 1.55;
+}
+.tc-hero-layer .tc-stack { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--tc-on-media-muted); }
+
+/* ---------- thumbnail stack ---------- */
+.tc-thumbs { display: flex; flex-direction: column; gap: clamp(10px, 1.6vw, 16px); }
+.tc-thumb {
+  position: relative; flex: 1; min-height: 76px;
+  border: 1px solid var(--tc-line); border-radius: 4px;
+  background: var(--tc-bg-2); padding: 10px 12px;
+  text-align: left; color: var(--tc-muted); cursor: pointer;
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 2px;
+  overflow: hidden; transition: border-color 0.25s ease; font-family: inherit;
+}
+.tc-thumb-media { position: absolute; inset: 0; z-index: 0; }
+.tc-thumb-media img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity 0.5s ease; }
+.tc-thumb-media img.is-loaded { opacity: 0.55; }
+.tc-thumb.is-active .tc-thumb-media img.is-loaded { opacity: 0.85; }
+.tc-thumb-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.78) 20%, rgba(0,0,0,0.2) 100%); }
+.tc-thumb:hover { border-color: var(--tc-accent-dim); }
+.tc-thumb:focus-visible { outline: 2px solid var(--tc-accent); outline-offset: 2px; }
+.tc-thumb.is-active { border-color: var(--tc-accent); color: var(--tc-on-media); }
+.tc-thumb .tc-t-index { position: relative; z-index: 1; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--tc-on-media-muted); }
+.tc-thumb .tc-t-title { position: relative; z-index: 1; font-size: 0.82rem; font-weight: 600; color: var(--tc-on-media); }
+
+/* ---------- controls ---------- */
+.tc-controls {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: clamp(14px, 2.4vw, 22px);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
+}
+.tc-controls.is-in { opacity: 1; transform: translateY(0); }
+.tc-arrow {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid var(--tc-line); background: transparent; color: var(--tc-paper);
+  display: grid; place-items: center; cursor: pointer; flex: none;
+}
+.tc-arrow:hover { border-color: var(--tc-accent); color: var(--tc-accent); }
+.tc-arrow:focus-visible { outline: 2px solid var(--tc-accent); outline-offset: 2px; }
+.tc-arrow svg { width: 16px; height: 16px; }
+.tc-progress { flex: 1; height: 2px; background: var(--tc-line-soft); position: relative; border-radius: 2px; overflow: hidden; }
+.tc-progress .tc-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0%; background: var(--tc-accent); }
+.tc-counter { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--tc-muted); flex: none; min-width: 52px; text-align: right; }
+
+@media (max-width: 720px) {
+  .tc-stage { grid-template-columns: 1fr; }
+  .tc-thumbs { flex-direction: row; overflow-x: auto; padding-bottom: 2px; }
+  .tc-thumb { min-width: 150px; }
+  .tc-hero { min-height: 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tc-shutter, .tc-stage, .tc-controls, .tc-hero-layer, .tc-thumb { transition: none !important; }
+}

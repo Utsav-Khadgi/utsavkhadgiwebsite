@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Timed Project Cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../time-card/time-card.css" />
+
+</head>
+
+<body>
+
+    <div id="cover">
+        <div class="mark">UK / WORK</div>
+    </div>
+
+    <nav id="nav">
+        <div class="brand">UTSAV <span>KHADGI</span></div>
+        <div class="links">
+            <a href="#">Work</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="stage" id="stage">
+            <div class="hero" id="hero">
+                <div class="icon" id="heroIcon"></div>
+                <!-- hero-layer nodes injected by JS -->
+            </div>
+
+            <div class="thumbs" id="thumbs"></div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <button class="arrow" id="prevBtn" type="button" aria-label="Previous project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+        </button>
+        <div class="progress">
+            <div class="fill" id="progressFill"></div>
+        </div>
+        <button class="arrow" id="nextBtn" type="button" aria-label="Next project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+        <div class="counter mono" id="counter">01 / 04</div>
+    </footer>
+
+    <script src="../js/navbar.js"></script>
+    <script src="../time-card/time-card.js"></script>
+
+</body>
+
+</html>

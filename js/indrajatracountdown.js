@@ -1,25 +1,22 @@
-
 /*
 ====================================
-7-DAY REVERSE COUNTDOWN
+TARGET DATE
 ====================================
 
-Indra Jatra ended:
-23 September 2026
-
-Reverse countdown runs for 7 days:
-
-Start: 23 September 2026
-End:   30 September 2026
-
 Month index starts from 0 in JS
+
+January = 0
+February = 1
+...
 September = 8
+
+23 September 2026
 */
 
-const reverseCountdownEnd = new Date(
+const targetDate = new Date(
     2026,
     8,
-    30,
+    23,
     0,
     0,
     0
@@ -36,10 +33,9 @@ function updateCountdown(){
     const now = new Date();
 
     const difference =
-        reverseCountdownEnd - now;
+        targetDate - now;
 
-
-    // Reverse countdown completed
+    // Countdown completed
     if(difference <= 0){
 
         document.getElementById("days").textContent = "00";
@@ -49,7 +45,6 @@ function updateCountdown(){
 
         return;
     }
-
 
     // Convert milliseconds
     const days =
@@ -82,40 +77,29 @@ function updateCountdown(){
             1000
         );
 
-
     // Update HTML
     document.getElementById("days")
-        .textContent = String(days)
-        .padStart(2, "0");
+        .textContent = days;
 
     document.getElementById("hours")
         .textContent = String(hours)
-        .padStart(2, "0");
+        .padStart(2,"0");
 
     document.getElementById("minutes")
         .textContent = String(minutes)
-        .padStart(2, "0");
+        .padStart(2,"0");
 
     document.getElementById("seconds")
         .textContent = String(seconds)
-        .padStart(2, "0");
+        .padStart(2,"0");
 }
 
-
 /*
-====================================
-RUN IMMEDIATELY
-====================================
+Run immediately
 */
-
 updateCountdown();
 
-
 /*
-====================================
-RUN EVERY SECOND
-====================================
+Run every second
 */
-
-setInterval(updateCountdown, 1000);
-
+setInterval(updateCountdown,1000);
