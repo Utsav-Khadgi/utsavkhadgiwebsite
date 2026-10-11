@@ -1,29 +1,33 @@
 
 /*
 ====================================
-7-DAY REVERSE COUNTDOWN
+INDRA JATRA — SEPTEMBER COUNTDOWN
 ====================================
 
-Indra Jatra ended:
-23 September 2026
+Counts down to 1 September every year.
+No exact Jatra date is required.
 
-Reverse countdown runs for 7 days:
-
-Start: 23 September 2026
-End:   30 September 2026
-
-Month index starts from 0 in JS
+Month index:
+January = 0
 September = 8
 */
 
-const reverseCountdownEnd = new Date(
-    2026,
-    8,
-    30,
-    0,
-    0,
-    0
-);
+// Get the next 1 September
+function getNextSeptember() {
+    const now = new Date();
+
+    let year = now.getFullYear();
+
+    // If September 1 has already arrived this year,
+    // target September 1 of next year.
+    const septemberStart = new Date(year, 8, 1, 0, 0, 0);
+
+    if (now >= septemberStart) {
+        year++;
+    }
+
+    return new Date(year, 8, 1, 0, 0, 0);
+}
 
 /*
 ====================================
@@ -31,91 +35,46 @@ COUNTDOWN FUNCTION
 ====================================
 */
 
-function updateCountdown(){
-
+function updateCountdown() {
     const now = new Date();
+    const targetDate = getNextSeptember();
 
-    const difference =
-        reverseCountdownEnd - now;
+    const difference = targetDate - now;
 
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
 
-    // Reverse countdown completed
-    if(difference <= 0){
+    const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
 
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
+    const minutes = Math.floor(
+        (difference % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
 
-        return;
-    }
+    const seconds = Math.floor(
+        (difference % (1000 * 60)) / 1000
+    );
 
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
 
-    // Convert milliseconds
-    const days =
-        Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
 
-    const hours =
-        Math.floor(
-            (difference %
-            (1000 * 60 * 60 * 24))
-            /
-            (1000 * 60 * 60)
-        );
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
 
-    const minutes =
-        Math.floor(
-            (difference %
-            (1000 * 60 * 60))
-            /
-            (1000 * 60)
-        );
-
-    const seconds =
-        Math.floor(
-            (difference %
-            (1000 * 60))
-            /
-            1000
-        );
-
-
-    // Update HTML
-    document.getElementById("days")
-        .textContent = String(days)
-        .padStart(2, "0");
-
-    document.getElementById("hours")
-        .textContent = String(hours)
-        .padStart(2, "0");
-
-    document.getElementById("minutes")
-        .textContent = String(minutes)
-        .padStart(2, "0");
-
-    document.getElementById("seconds")
-        .textContent = String(seconds)
-        .padStart(2, "0");
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
 }
 
-
-/*
-====================================
-RUN IMMEDIATELY
-====================================
-*/
-
+// Run immediately
 updateCountdown();
 
-
-/*
-====================================
-RUN EVERY SECOND
-====================================
-*/
-
+// Update every second
 setInterval(updateCountdown, 1000);
 
